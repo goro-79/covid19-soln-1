@@ -1,0 +1,2 @@
+steps:
+  - name: 'gcr.io/commons-277209/covid-19'

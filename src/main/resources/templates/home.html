@@ -1,0 +1,52 @@
+{{>layout-start}}
+
+{{>search-modal}}
+<div id="tableDiv">
+    <div id="table1Div">
+        <h4>Requests submitted</h4>
+        <table id="table1" class="table table-striped table-bordered table-sm mb-5">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Status</th>
+                <th scope="col">Match</th>
+            </tr>
+            </thead>
+            <tbody id="tbody1">
+            <tr>
+                <td colspan="5" style="text-align: center">
+                    {{>public/spinner}}
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <div id="table2Div">
+        <h4>Offers submitted</h4>
+        <table id="table2" class="table table-striped table-bordered table-sm">
+            <thead class="">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody id="tbody2">
+            <tr>
+                <td colspan="4" style="text-align: center">
+                    {{>public/spinner}}
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/home.js"></script>
+{{>layout-end}}

@@ -1,0 +1,52 @@
+server:
+  port: 8081
+  http:
+    port: 8082
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: ${KEY_STORE_PASS}
+    key-store-type: PKCS12
+    key-password: ${KEY_STORE_PASS}
+    enabled: false
+
+logging:
+  level:
+    web: debug
+    org:
+      mongodb:
+        driver: warn
+      springframework: info
+  file:
+    name: covid19.log
+
+app:
+  security:
+    public:
+      paths: /pages/public, /static, /users, /data
+
+spring:
+  application:
+    name: covid19-soln-1
+
+  pid:
+    fail-on-write-error: true
+
+  mustache:
+    suffix: .html
+    expose-request-attributes: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_ID}
+    password: ${GORO_MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+          starttls:
+            enable: true
+
+

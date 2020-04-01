@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" class="h-100">
+<head>
+    {{>public/head}}
+</head>
+
+
+<body class="text-center d-flex flex-column h-100">
+{{>public/navbar-public}}
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <form class="form-signin" style="width: 100%; max-width: 330px;padding: 15px; margin: auto;"  action="/pages/public/login" method="post">
+            <h3 class="h4 mb-3 font-weight-normal">Log In</h3>
+            <div class="border-info m-3 p-1">
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" name="username" class="form-control" placeholder="Email address" required
+                       autofocus>
+            </div>
+            <div class="border-info m-3 p-1">
+                <label for="password" class="sr-only">Password</label>
+                <input id="password" type="password" name="password" class="form-control" placeholder="Password"
+                       required
+                       minlength="7" maxlength="50"/>
+            </div>
+            <div class="border-info p-1 m-3">
+                <button class="btn  btn-primary btn-block" type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+</main>
+{{>public/common-footer}}
+<script type="text/javascript" src="/static/js/login.js"></script>
+</body>
+</html>

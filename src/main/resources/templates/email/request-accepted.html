@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    {{>public/head}}
+</head>
+
+<body>
+<div class="container mt-3">
+    {{>public/brand}}
+    <h4 class="mb-2 text-success">Update</h4>
+    <p> You had requested for an item <strong>{{item.name}}</strong> on our portal. <br/>
+        The owner of the item has shared their email address <strong>{{owner.email}}</strong>. Please contact them and
+        find out more details to get the help.<br/>
+    </p>
+
+    <div class="font-weight-light mt-3 p-2 border-top">
+        <h4>Disclaimers</h4>
+        <ol type="1" class="list-group list-group-flush">
+            <li class="list-group-item">
+                You should use owner email id only for requesting the item and not use or share it anywhere.
+            </li>
+            <li class="list-group-item">
+                You should not give any money as this service is based on concept of community volunteering.
+            </li>
+            <li class="list-group-item">
+                Please take care when contacting and taking ownership of item.
+            </li>
+            <li class="list-group-item">
+                Check our website for any more queries.
+            </li>
+        </ol>
+    </div>
+</div>
+{{>public/common-footer}}
+</body>
+</html>

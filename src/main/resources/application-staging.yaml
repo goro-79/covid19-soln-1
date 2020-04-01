@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://covid19soln1:${GORO_MONGODB_PASSWORD}@{url}/covid19soln1?retryWrites=true&w=majority
+
+log:
+  level:
+    org:
+      mongodb:
+        driver: warn

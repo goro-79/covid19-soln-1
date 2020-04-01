@@ -1,0 +1,8 @@
+/.idea/
+/target/
+/app.pid
+covid19.log.*.
+/certs/
+/covid19.log
+/covid19-soln-1.iml
+/covid19.log.2020-05-24.0.gz

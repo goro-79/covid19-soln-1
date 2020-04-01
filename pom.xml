@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- parent project -->
+    <parent>
+        <groupId>grsdev7.commons</groupId>
+        <artifactId>grsdev7-web-parent-pom</artifactId>
+        <version>1.5</version>
+        <relativePath/>
+    </parent>
+
+    <!-- application details -->
+    <groupId>live.goro.covid19</groupId>
+    <artifactId>covid19-soln-1</artifactId>
+    <version>4.3</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>live.goro.common.web</groupId>
+            <artifactId>goro-web-commons</artifactId>
+            <version>1.9</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>grsdev7 maven github repo</name>
+            <url>https://maven.pkg.github.com/goro-79/artifacts</url>
+        </repository>
+    </repositories>
+</project>

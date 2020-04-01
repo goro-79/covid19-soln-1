@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" class="h-100 ide315 idc315">
+<head>
+    {{>public/head}}
+    <style>
+        .indicator {
+            height: 6px !important;
+            background-color: #0a54ff !important;
+        }
+        .img-fluid {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<main role="main" class="flex-shrink-0">
+    {{>public/privacy}}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                {{>public/navbar-public}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mt-3">
+                <div id="demo" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="">
+                        <ol class="carousel-indicators ">
+                            <li data-target="#demo" data-slide-to="0" class="active indicator"></li>
+                            <li data-target="#demo" data-slide-to="1" class="indicator"></li>
+                            <li data-target="#demo" data-slide-to="2" class="indicator"></li>
+                        </ol>
+                    </div>
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active" style="height: 31rem">
+                            <div class="">
+                                <div class="h3 text-info">
+                                    How it works ?
+                                </div>
+                                <div class="" style="font-size: large">
+                                    <div class="" style="">
+                                        This portal allows people to volunteer and help
+                                        each other.
+                                        <hr>
+                                        During this Covid-19 pandemic situation, we see a lot of demand for effective
+                                        coordination
+                                        among
+                                        people, citizens,
+                                        institutions, NGOs, governments ...
+                                        <hr>
+                                    </div>
+
+                                    <div class="font-italic">
+                                        It is based on community volunteering and is completely free.<br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item text-center align-items-center align-self-center justify-content-center" style="height: 31rem">
+                            <div class="text-light" style="font-size: large">
+                                <div class="h3 text-info">
+                                    Step 1
+                                </div>
+                                <div class="text-dark" style="">
+                                    User adds all the items he needs after doing sign up on portal
+                                </div>
+                            </div>
+
+                            <img class="img-fluid rounded-lg my-3" src="/static/img/help/add-request-item.png">
+
+                        </div>
+
+                        <div class="carousel-item" style="height: 31rem">
+                            <div class="carousel-caption align-items-center">
+                                <div class="h3">Built On</div>
+
+                                <div class="row row-cols-1 align-items-center align-self-center justify-content-center">
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="col">
+                                                <a href="https://projectreactor.io/" target="_blank">
+                                                    Project Reactor
+                                                </a>
+                                            </div>
+
+                                            <div class="col">
+                                                <img class="img-fluid col"
+                                                     style="height: 100px; width: 100px;background-color: #4a4444;"
+                                                     src="https://projectreactor.io/assets/img/reactor.png">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col ">
+                                        <a href="https://spring.io/reactive" target="_blank">
+                                            <img class="img-fluid " style="height: 70px"
+                                                 src="https://spring.io/images/spring-logo-9146a4d3298760c2e7e49595184e1975.svg">
+                                        </a>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <a href="https://adoptopenjdk.net/index.html" target="_blank">
+                                            <img class="img-fluid" style=""
+                                                 src="/static/img/adoptOpenJdk.png"
+                                                 alt="AdoptOpenJDK">
+                                        </a>
+                                    </div>
+
+                                    <div class="col">
+                                        <a href="https://www.mongodb.com/" target="_blank">
+                                            <img class="img-fluid" style="height: 50px"
+                                                 src="https://docs.mongodb.com/images/mongodb-logo.png">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+{{>public/common-footer}}
+</body>
+</html>

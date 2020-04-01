@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    {{>public/head}}
+</head>
+
+<body>
+<div class="container text-center">
+
+    <div class="m-4">
+        <img src="/static/icons/favicon.ico" alt="" width="72" height="72">
+        <h4 class="h4 mb-3 font-weight-normal">Consent Form</h4>
+        Allow interested person to contact me on my email
+        <div class="text-primary">{{email}}</div>
+        to collect my item ?
+        <br>
+        <button type="button" class="btn btn-success w-25 m-3" onclick="patchItemRequest()">
+            Yes
+        </button>
+    </div>
+</div>
+<script>
+    function patchItemRequest() {
+        console.info('Patch item request called');
+        const requestId = '{{request_id}}';
+        const url = new URL(getOrigin() + "/users/offered_items/requests/" + requestId);
+        //todo disable button on submit and close window and also BE should validate duplicate consent
+        sendPatchReq(url, {'itemOwnerConsent': 'true'}).then(
+            response => {
+                console.info('item request patched status : ' + response.status);
+                alert('Consent accepted. You can close this tab');
+            }
+        )
+    }
+</script>
+
+{{>public/common-footer}}
+</body>
+</html>
