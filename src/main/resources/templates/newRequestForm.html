@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<div class="container">
+    <!-- Request Form starts -->
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">New Request Form</h5>
+
+                <form id="requestForm" th:action="@{/requests}" th:object="${requestDto}" method="POST">
+
+                    <fieldset>
+                        <ul th:if="${#fields.hasErrors('*')}" class="errorlist list-group">
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}" class="list-group-item"/>
+                        </ul>
+
+                        <label>List Of Items</label>
+                        <table id="newRequestItemsTable" class="table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="itemDto,itemDtoStat : *{itemDtos}">
+                                <td th:text="${itemDtoStat.count}">1</td>
+                                <td>
+                                    <input type="text" th:field="*{itemDtos[__${itemDtoStat.index}__].name}"/>
+                                </td>
+                                <!--                                    <td>
+                                                                        <input type="text" th:field="*{rows[__${rowStat.index}__].seedsPerCell}" th:errorclass="fieldError" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="submit" name="removeRow" th:value="${rowStat.index}" th:text="#{seedstarter.row.remove}">Remove row</button>
+                                                                    </td>-->
+                            </tr>
+
+                            <!-- <div class="col">
+                                 <input type="text" class="form-control" th:value="' '" placeholder="quantity">
+                             </div>
+                             <div class="col">
+                                 <div class="input-group">
+                                     <div class="input-group-prepend">
+                                         <span class="input-group-text">by date</span>
+                                         <input class="form-control" type="date">
+                                     </div>
+                                 </div>
+                             </div>-->
+                            </tbody>
+                        </table>
+
+                        <label>Your Details</label>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Zip</label>
+                                <input type="text" class="form-control" id="zip">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                      <!--  <table id="requesterDetailsTable" class="table-bordered table-hover">
+
+                            <thead>
+                            </thead>
+                            <tbody>
+                                <input type="email" class="form-control" placeholder="email">
+                                <input type="text" class="form-control" placeholder="pin code">
+                                <input type="submit" class="btn btn-primary" value="Submit"/>
+                            </tbody>
+                        </table>-->
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Request Form ends -->
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script th:inline="javascript">
+    function addRow() {
+        let listName = 'movies'; //list name in RequestCreationDto.class
+        let fieldsNames = ['id', 'title', 'info']; //field names from Movie.class
+        let rowIndex = document.querySelectorAll('.item').length; //we can add mock class to each movie-row
+
+        let row = document.createElement('div');
+        row.classList.add('row', 'item');
+
+        fieldsNames.forEach((fieldName) => {
+            let col = document.createElement('div');
+            col.classList.add('col', 'form-group');
+            if (fieldName === 'id') {
+                col.classList.add('d-none'); //field with id - hidden
+            }
+
+            let input = document.createElement('input');
+            input.type = 'text';
+            input.classList.add('form-control');
+            input.id = listName + rowIndex + '.' + fieldName;
+            input.setAttribute('name', listName + '[' + rowIndex + '].' + fieldName);
+
+            col.appendChild(input);
+            row.appendChild(col);
+        });
+
+        document.getElementById('movieList').appendChild(row);
+    }
+</script>
+-->
+</body>
+</html>

@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      user: user
+      password: user
+      uri: mongodb+srv://user:user@grsdev7-qorpx.mongodb.net/test?retryWrites=true&w=majority
+
+log:
+  level:
+    org:
+      mongodb:
+        driver:
+          client: DEBUG
+          cluster: ERROR

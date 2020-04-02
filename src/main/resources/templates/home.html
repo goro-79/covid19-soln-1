@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title th:text="${title}"></title>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row row-cols-2 row-cols-md-2">
+
+        <!-- Request Form starts -->
+        <!-- <div class="col">
+             <div class="card">
+                 <div class="card-body">
+                     <h5 class="card-title">I Need ...</h5>
+
+                     <form id="requestForm" th:action="@{/requests}" th:object="${requestDto}" method="POST">
+                         <div class="form-group row">
+                             <div class="col">
+                                 <input type="text" class="form-control" th:field="*{itemDtos[0].name}" th:value="' '"
+                                        placeholder="item name">
+                             </div>
+                             <div class="col">
+                                 <input type="text" class="form-control" th:value="' '" placeholder="quantity">
+                             </div>
+                             <div class="col">
+                                 <div class="input-group">
+                                     <div class="input-group-prepend">
+                                         <span class="input-group-text">by date</span>
+                                         <input class="form-control" type="date">
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <h5>My ...</h5>
+                         <div class="form-group row">
+                             <div class="col">
+                                 <input type="email" class="form-control" placeholder="email">
+                             </div>
+                             <div class="col">
+                                 <input type="text" class="form-control" placeholder="pin code">
+                             </div>
+                         </div>
+
+                         <div class="form-group row">
+                             <div class="col md-4">
+                                 <input type="submit" class="btn btn-primary" value="Submit"/>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+         </div>-->
+        <!-- Request Form ends -->
+
+        <!-- Submit Request Button -->
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Request</h5>
+                    <p class="card-text">You can submit a request for help or items you need to manage Covid-19
+                        Pandemic</p>
+                    <a href="/requests/form" class="btn btn-primary">Submit New Request</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- request queue starts -->
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Request Queue</h5>
+                    <div class="table-responsive">
+                        <table id="activeRequests" class="table table-striped table-bordered table-hover">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Due date</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <div th:each="request : ${requestQueue}">
+                                <tr th:each="item,status : ${request.itemDtos}">
+                                    <td th:text="${status.count}"/>
+                                    <td class="requestItemName" th:text="${item.name}"/>
+                                    <td class="requestItemQuantity" th:text="${item.quantity}"/>
+                                    <td class="requesterCity" th:text="${request.requester.city}"></td>
+                                    <td class="itemDueDate" th:text="${item.dueDate}"></td>
+                                </tr>
+                            </div>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script th:inline="javascript">
+    function addRow() {
+        let listName = 'movies'; //list name in RequestCreationDto.class
+        let fieldsNames = ['id', 'title', 'info']; //field names from Movie.class
+        let rowIndex = document.querySelectorAll('.item').length; //we can add mock class to each movie-row
+
+        let row = document.createElement('div');
+        row.classList.add('row', 'item');
+
+        fieldsNames.forEach((fieldName) => {
+            let col = document.createElement('div');
+            col.classList.add('col', 'form-group');
+            if (fieldName === 'id') {
+                col.classList.add('d-none'); //field with id - hidden
+            }
+
+            let input = document.createElement('input');
+            input.type = 'text';
+            input.classList.add('form-control');
+            input.id = listName + rowIndex + '.' + fieldName;
+            input.setAttribute('name', listName + '[' + rowIndex + '].' + fieldName);
+
+            col.appendChild(input);
+            row.appendChild(col);
+        });
+
+        document.getElementById('movieList').appendChild(row);
+    }
+</script>
+-->
+</body>
+</html>
